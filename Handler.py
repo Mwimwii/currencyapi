@@ -36,4 +36,6 @@ class Handler(object):
                              auth=auth)
         return rates
 
-
+def get_all_currencies():
+    with open("currencies.json") as f:
+        currencies = json.load(f)
