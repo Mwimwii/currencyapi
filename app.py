@@ -3,13 +3,11 @@ from Handler import Handler, get_all_currencies
 from os import abort
 from flask import Flask, jsonify, request, abort
 app = Flask(__name__)
-API_KEY = "sd"
-
-
 auth = ('qdyd65@gmail.com67829135', 'c63rt6qs5vh0cplfhb8msiakbl')
 
-handler = Handler("XE")
+handler = Handler("XE", auth)
 currencies = get_all_currencies()
+
 # Returns the rates
 @app.route('/')
 def index():

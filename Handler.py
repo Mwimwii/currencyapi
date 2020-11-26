@@ -2,12 +2,13 @@ import requests
 import json
 
 class Handler(object):
-    def __init__(self, provider):
+    def __init__(self, provider, auth):
         self.provider = provider
+        self.auth=auth
 
     def index(self):
         rates = requests.get(
-            'https://xecdapi.xe.com/v1/convert_from.json/?to=USD&from=ZMW&amount=1000.95', auth=auth)
+            'https://xecdapi.xe.com/v1/convert_from.json/?to=USD&from=ZMW&amount=1000.95', auth=self.auth)
         return {"status": "success"}
 
     def rate(self, base):
@@ -20,7 +21,7 @@ class Handler(object):
         return rates
 
     def req_currencies(self, base, url='https://xecdapi.xe.com/v1/currencies.json/?obsolete=true'):
-        currencies = requests.get(url, auth=auth)
+        currencies = requests.get(url, auth=self.auth)
         currencies = [x['iso'] for x in currencies.json(
         )['currencies'] if not x['is_obsolete']]
         currencies.pop(currencies.index(base))
@@ -39,7 +40,7 @@ class Handler(object):
         }
         rates = requests.get(f'https://xecdapi.xe.com/v1/convert_from.json/',
                              params=params,
-                             auth=auth)
+                             auth=self.auth)
         return rates
 
 def get_all_currencies():
