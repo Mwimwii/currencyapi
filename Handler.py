@@ -1,4 +1,5 @@
 import requests
+import json
 
 class Handler(object):
     def __init__(self, provider):
@@ -18,10 +19,15 @@ class Handler(object):
         }
         return rates
 
-    def currencies(self, base, url='https://xecdapi.xe.com/v1/currencies.json/?obsolete=true'):
+    def req_currencies(self, base, url='https://xecdapi.xe.com/v1/currencies.json/?obsolete=true'):
         currencies = requests.get(url, auth=auth)
         currencies = [x['iso'] for x in currencies.json(
         )['currencies'] if not x['is_obsolete']]
+        currencies.pop(currencies.index(base))
+        return ','.join(currencies)
+
+    def currencies(self, base, url='https://xecdapi.xe.com/v1/currencies.json/?obsolete=true'):
+        currencies = get_all_currencies()
         currencies.pop(currencies.index(base))
         return ','.join(currencies)
 
