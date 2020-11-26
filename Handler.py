@@ -45,3 +45,4 @@ class Handler(object):
 def get_all_currencies():
     with open("currencies.json") as f:
         currencies = json.load(f)
+    return currencies
