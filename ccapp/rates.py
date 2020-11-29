@@ -5,7 +5,7 @@ from flask import (
 from werkzeug.exceptions import abort
 from . import Handler
 
-bp = Blueprint('rates', __name__, url_prefix='/')
+bp = Blueprint('rates', __name__, url_prefix='/rates')
 
 auth = ('mwilaphile@gmail.com143244848', '8gvu6k9ihpeof8t2t96fkeafs8')
 
