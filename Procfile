@@ -1,1 +1,1 @@
-web: gunicorn ccapp:app -p 5000
+web: gunicorn "ccapp:create_app()"
