@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% block css %}
+    {% endblock %}
+    
+</head>
+<body>
+    <header class="main__header">
+        {% block header %}
+        {% endblock %}
+    </header>
+
+    <div class="main__content">
+        {% block content %}
+        {% endblock %}
+
+    </div>
+    
+</body>
+</html>

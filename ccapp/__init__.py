@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -17,7 +17,7 @@ def create_app(test_config=None):
 
     @app.route('/')
     def index():
-        return ('Index Page')
+        return render_template('index.html')
 
     @app.errorhandler(404)
     def resource_not_found(e):
