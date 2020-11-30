@@ -39,7 +39,7 @@ def index():
     base = request.args.get('base')
     if base is None:
         base = "USD"
-    if base not in session['currencies']:
+    if base not in session.get('currencies'):
         abort(500, description=f'No rates for currency {base}')
     rates = handler.rate(base)
     return jsonify(rates)
