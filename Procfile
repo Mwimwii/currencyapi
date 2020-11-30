@@ -1,1 +1,1 @@
-web: gunicorn app:ccapp
+web: gunicorn ccapp:app
