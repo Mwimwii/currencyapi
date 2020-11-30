@@ -33,8 +33,8 @@ def get_currencies(view):
     return wrapper
 
 
-@bp.route('/')
 @get_currencies
+@bp.route('/')
 def index():
     base = request.args.get('base')
     if base is None:
