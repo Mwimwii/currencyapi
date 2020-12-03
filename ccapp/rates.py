@@ -21,7 +21,7 @@ def get_all_c():
 import functools
 
 def get_currencies(view):
-    functools.wraps(view)
+    @functools.wraps(view)
     def wrapper(**kwargs):
         if not session.get('currencies', 0):
             print('Currencies NOT in session..Loading')
