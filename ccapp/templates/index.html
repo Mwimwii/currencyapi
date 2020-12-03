@@ -8,9 +8,12 @@
 
 {% block content %}
 <br>
-    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-2xl">
+    <div>
+        <img class=" object-center w-12 h-12 m-4" src="{{url_for('static', filename='favicon.png')}}" alt="">
+    </div>
         <div class="md:flex">
-            <div class="p-8">
+            <div class="p-6">
                 <div class="tracking-wide text-xl text-black-500 font-semibold">Introduction</div>
                 <p class="text-gray-500">Welcome to the official docs for the currency converter</p>
                 <br>          

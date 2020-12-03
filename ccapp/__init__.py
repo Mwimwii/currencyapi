@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, send_from_directory
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -20,6 +20,5 @@ def create_app(test_config=None):
     @app.errorhandler(404)
     def resource_not_found(e):
         return jsonify(error=str(e)), 404
-
 
     return app

@@ -5,7 +5,8 @@
     <title>{% block title %}{% endblock %}</title>
     {% block css %}
     {% endblock %}
-    
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
 </head>
 <body>
     <header class="main__header">
