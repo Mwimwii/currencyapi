@@ -3,12 +3,7 @@ from flask import Flask, jsonify, render_template
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        SECRET_KEY='5b91c8351e9f93b949629a34',
-        SESSION_TYPE = 'filesystem',
-        SESSION_PERMANENT= False,
-    )
-    
+    app.config.from_object('config')
     if test_config is None:
         app.config.from_pyfile('config.py', silent=True)
     else:
